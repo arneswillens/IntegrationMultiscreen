@@ -3,3 +3,28 @@
 body{
   margin: 0;
 }
+*{
+  font-family: "Work Sans", sans-serif;
+}
+.mat-tab-label{
+  font-size: 1.25em;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+.mat-table, .mat-paginator{
+  width: 50%;
+}
+
