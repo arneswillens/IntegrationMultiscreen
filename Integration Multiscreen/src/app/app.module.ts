@@ -10,6 +10,7 @@ import { KolomboorLogsComponent } from './logs/kolomboor-logs/kolomboor-logs.com
 import { PrinterLogsComponent } from './logs/printer-logs/printer-logs.component';
 import { InkomLogsComponent } from './logs/inkom-logs/inkom-logs.component';
 import { LogsComponent } from './logs/logs.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { LogsComponent } from './logs/logs.component';
     KolomboorLogsComponent,
     PrinterLogsComponent,
     InkomLogsComponent,
-    LogsComponent
+    LogsComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
