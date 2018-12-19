@@ -18,6 +18,7 @@ const NAMES: string[] = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
   styleUrls: ['./inkom-logs.component.css']
 })
 export class InkomLogsComponent implements OnInit {
+  full = NAMES.length;
   displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
   dataSource: MatTableDataSource<UserData>;
 
