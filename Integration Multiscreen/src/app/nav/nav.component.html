@@ -1,12 +1,12 @@
 <mat-toolbar color="accent">
-  <a class="header-logo"><img class="logo" src="assets/Images/Medialablogo-combi.svg" alt="Logo Medialab.brussels"></a>
+  <a class="header-logo"><img class="logo" src="assets/Images/Medialablogo-combi.svg" alt="Logo Medialab.brussels" routerLink="/"></a>
   <span class="spacer"></span>
   <span class="spacer"></span>
-    <button mat-button class="nav" value="Logs">Logs</button>
+    <button mat-button class="nav" value="Logs" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Logs</button>
     <span class="spacer"></span>
-    <button mat-button class="nav" value="Personen">Personen</button>
+    <button mat-button class="nav" value="Personen" routerLink="/personen" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Personen</button>
     <span class="spacer"></span>
-    <button mat-button class="nav" value="Certificaten">Certificaten</button>
+    <button mat-button class="nav" value="Certificaten" routerLink="/certificaten" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Certificaten</button>
   <span class="spacer"></span>
   <span class="spacer"></span>
 

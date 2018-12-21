@@ -6,17 +6,17 @@ export interface TestData {
   time: string;
 }
 @Component({
-  selector: 'app-inkom-logs',
-  templateUrl: './inkom-logs.component.html',
-  styleUrls: ['./inkom-logs.component.css']
+  selector: 'app-alle-logs',
+  templateUrl: './alle-logs.component.html',
+  styleUrls: ['./alle-logs.component.css']
 })
-export class InkomLogsComponent implements OnInit {
+export class AlleLogsComponent implements OnInit {
   displayedColumns: string[] = ['name', 'machine', 'time'];
   dataSource: MatTableDataSource<TestData>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   constructor() {
-    const users = Array.from({length: 90}, (_, k) => createNewUser());
+    const users = Array.from({length: 100}, (_, k) => createNewUser());
     this.dataSource = new MatTableDataSource(users);
   }
 
