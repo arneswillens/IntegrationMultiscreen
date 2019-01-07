@@ -14,6 +14,8 @@ import { NavComponent } from './nav/nav.component';
 import {RouterModule, Routes} from '@angular/router';
 import { PersonenComponent } from './personen/personen.component';
 import { CertificatenComponent } from './certificaten/certificaten.component';
+import { StatistiekenComponent } from './statistieken/statistieken.component';
+import { PersonenDetailComponent } from './personen-detail/personen-detail.component';
 const appRoutes: Routes = [
   {path: '', component: LogsComponent},
   {path: 'personen', component: PersonenComponent},
@@ -30,7 +32,9 @@ const appRoutes: Routes = [
     LogsComponent,
     NavComponent,
     PersonenComponent,
-    CertificatenComponent
+    CertificatenComponent,
+    StatistiekenComponent,
+    PersonenDetailComponent
   ],
   imports: [
     BrowserModule,

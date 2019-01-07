@@ -1,0 +1,29 @@
+.container{
+  position: fixed;
+  float: right;
+  width: 20%;
+  padding-left:80%;
+  padding-top: 0.5%;
+}
+
+h1, p{
+  text-align: center;
+}
+
+span{
+ margin-left: 40%;
+  text-align: center;
+}
+
+.statistiekcijfer{
+  padding-top: 20%;
+}
+
+.circle {
+  height: 3.5em;
+  width: 3.5em;
+  border-style: solid;
+  border-color: #F44336;
+  border-radius: 50%;
+  display: inline-block;
+}
