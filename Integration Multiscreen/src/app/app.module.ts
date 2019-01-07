@@ -19,7 +19,8 @@ import { PersonenDetailComponent } from './personen-detail/personen-detail.compo
 const appRoutes: Routes = [
   {path: '', component: LogsComponent},
   {path: 'personen', component: PersonenComponent},
-  {path: 'certificaten', component: CertificatenComponent}
+  {path: 'certificaten', component: CertificatenComponent},
+  {path: 'personendetail', component: PersonenDetailComponent}
 ];
 @NgModule({
   declarations: [
