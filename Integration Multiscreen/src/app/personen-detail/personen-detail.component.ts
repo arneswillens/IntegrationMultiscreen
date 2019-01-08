@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 export interface TestData {
   date: string;
@@ -11,10 +11,13 @@ export interface TestData {
   styleUrls: ['./personen-detail.component.css']
 })
 export class PersonenDetailComponent implements OnInit {
+  persoon: {naam: string, email: string, tel: string} = {naam: 'Beau Muylle', email: 'paardenpiemel69@gmail.com', tel: '0420 696969' };
+
   displayedColumns: string[] = ['date', 'time', 'lastlog'];
   dataSource: MatTableDataSource<TestData>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+
   constructor() {
     const users = Array.from({length: 100}, (_, k) => createNewUser());
     this.dataSource = new MatTableDataSource(users);
