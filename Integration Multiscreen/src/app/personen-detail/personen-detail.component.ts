@@ -11,6 +11,7 @@ export interface TestData {
   styleUrls: ['./personen-detail.component.css']
 })
 export class PersonenDetailComponent implements OnInit {
+
   persoon: {naam: string, email: string, tel: string} = {naam: 'Beau Muylle', email: 'paardenpiemel69@gmail.com', tel: '0420 696969' };
 
   displayedColumns: string[] = ['date', 'time', 'lastlog'];
