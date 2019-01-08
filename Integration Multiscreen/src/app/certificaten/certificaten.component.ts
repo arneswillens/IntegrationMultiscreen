@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CertificatenComponent implements OnInit {
 
-  typesOfCertificates: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
+  typesOfCertificates: string[] = ['Lasercutter 1', 'Lasercutter 2', '3D printer 1', '3D printer 2', 'Kolomboor'];
 
   constructor() { }
 

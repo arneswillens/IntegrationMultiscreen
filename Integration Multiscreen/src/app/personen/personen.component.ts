@@ -3,7 +3,7 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 export interface TestData {
   name: string;
   lastlog: string;
-  time: string;
+  certificate: string;
 }
 
 @Component({
@@ -11,7 +11,8 @@ export interface TestData {
   templateUrl: './personen.component.html',
   styleUrls: ['./personen.component.css']
 })
-export class PersonenComponent implements OnInit { displayedColumns: string[] = ['name', 'lastlog', 'time'];
+export class PersonenComponent implements OnInit {
+  displayedColumns: string[] = ['name', 'lastlog', 'certificate'];
   dataSource: MatTableDataSource<TestData>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -31,6 +32,6 @@ function createNewUser(): TestData {
   return {
     name: 'Beau Muylle',
     lastlog: 'Pornhub',
-    time: 'vandaag'
+    certificate: 'pro fapper'
   };
 }
