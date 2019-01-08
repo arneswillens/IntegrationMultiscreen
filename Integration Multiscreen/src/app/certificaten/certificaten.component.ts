@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CertificatenComponent implements OnInit {
 
+  typesOfCertificates: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
+
   constructor() { }
 
   ngOnInit() {

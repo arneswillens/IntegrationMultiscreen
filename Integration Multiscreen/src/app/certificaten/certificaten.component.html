@@ -1,3 +1,15 @@
-<p>
-  certificaten works!
-</p>
+<div class="wrapper">
+  <mat-selection-list #certificates>
+    <mat-list-option *ngFor="let certificate of typesOfCertificates">
+      {{certificate}}
+    </mat-list-option>
+  </mat-selection-list>
+
+
+  <p>
+    Options selected: {{certificates.selectedOptions.selected.length}}
+  </p>
+
+</div>
+
+
