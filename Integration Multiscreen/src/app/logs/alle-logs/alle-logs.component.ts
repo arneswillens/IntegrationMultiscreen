@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {DataService} from '../../data.service';
+import {Observable} from 'rxjs';
 export interface TestData {
   name: string;
   machine: string;
@@ -25,7 +26,9 @@ export class AlleLogsComponent implements OnInit {
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    console.log(this.dS.getData());
+    this.dS.getData().subscribe( (result) => {
+      console.log(result);
+    });
   }
 
 }
