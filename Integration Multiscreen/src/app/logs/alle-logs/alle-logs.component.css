@@ -1,0 +1,7 @@
+.lijst p{
+  display: inline-block;
+}
+
+.naam{
+  float: right;
+}

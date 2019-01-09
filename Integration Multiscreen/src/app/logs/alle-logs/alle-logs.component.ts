@@ -1,11 +1,14 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {DataService} from '../../data.service';
+import {Observable} from 'rxjs';
+
 export interface TestData {
   name: string;
   machine: string;
   time: string;
 }
+
 @Component({
   selector: 'app-alle-logs',
   templateUrl: './alle-logs.component.html',
@@ -13,27 +16,28 @@ export interface TestData {
   providers: [DataService]
 })
 export class AlleLogsComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'machine', 'time'];
-  dataSource: MatTableDataSource<TestData>;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  data: {
+    id: number,
+    naam: String
+  }[] = [];
+
   constructor(private dS: DataService) {
-    const users = Array.from({length: 100}, (_, k) => createNewUser());
-    this.dataSource = new MatTableDataSource(users);
+
   }
+
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-    console.log(this.dS.getData().toPromise());
+    this.dS.getData().subscribe((result) => {
+      for (const c in result) {
+        this.data.push({
+          id: result[c].gtypeid,
+          naam: result[c].gtypenaam
+        });
+        console.log(result[c].gtypeid);
+        console.log(result[c].gtypenaam);
+        console.log(this.data);
+      }
+    });
+    /*const a = result[0].gtypenaam; */
   }
-
-}
-function createNewUser(): TestData {
-
-  return {
-    name: 'slik',
-    machine: 'blub',
-    time: 'vandaag'
-  };
 }

@@ -14,5 +14,10 @@ export class DataService {
     return this.http.get('http://localhost:8080/GebruikersType/getAll');
   }
 
+  /*getName(){
+    return this.http.get('http://localhost:8080/Gebruiker/getAll'+ 's=' + );
+
+  }*/
+
 
 }
