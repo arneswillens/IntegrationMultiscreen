@@ -1,7 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {DataService} from '../../data.service';
-import {Observable} from 'rxjs';
 
 export interface TestData {
   name: string;
@@ -35,7 +33,6 @@ export class AlleLogsComponent implements OnInit {
         });
         console.log(result[c].gtypeid);
         console.log(result[c].gtypenaam);
-        console.log(this.data);
       }
     });
     /*const a = result[0].gtypenaam; */

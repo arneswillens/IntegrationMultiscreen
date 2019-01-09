@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import {DataService} from '../../data.service';
 export interface TestData {
   name: string;
   machine: string;
@@ -8,29 +9,32 @@ export interface TestData {
 @Component({
   selector: 'app-kolomboor-logs',
   templateUrl: './kolomboor-logs.component.html',
-  styleUrls: ['./kolomboor-logs.component.css']
+  styleUrls: ['./kolomboor-logs.component.css'],
+  providers: [DataService]
 })
 export class KolomboorLogsComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'machine', 'time'];
-  dataSource: MatTableDataSource<TestData>;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-  constructor() {
-    const users = Array.from({length: 70}, (_, k) => createNewUser());
-    this.dataSource = new MatTableDataSource(users);
+  data: {
+    id: number,
+    naam: String
+  }[] = [];
+
+  constructor(private dS: DataService) {
+
   }
+
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.dS.getData().subscribe((result) => {
+      for (const c in result) {
+        this.data.push({
+          id: result[c].gtypeid,
+          naam: result[c].gtypenaam
+        });
+        console.log(result[c].gtypeid);
+        console.log(result[c].gtypenaam);
+      }
+    });
+    /*const a = result[0].gtypenaam; */
   }
-
 }
-function createNewUser(): TestData {
 
-  return {
-    name: 'slik',
-    machine: 'blub',
-    time: 'vandaag'
-  };
-}
