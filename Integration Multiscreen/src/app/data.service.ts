@@ -11,7 +11,7 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getData() {
-    return this.http.get('https://jsonplaceholder.typicode.com/todos')
+    return this.http.get('http://localhost:8080/GebruikersType/getAll')
       .pipe(map(
         (response: Response) => {
           const data = response.json();
