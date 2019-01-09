@@ -6,3 +6,14 @@
   margin-left: 10%;
   margin-top: 2%;
 }
+mat-list-item{
+  width: 10%;
+}
+
+.certificates{
+  float: left;
+  width: 25%;
+  overflow: auto;
+  margin-right: 0;
+
+}
