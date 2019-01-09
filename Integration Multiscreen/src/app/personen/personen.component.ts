@@ -28,7 +28,6 @@ export class PersonenComponent implements OnInit {
 
 }
 function createNewUser(): TestData {
-
   return {
     name: 'Beau Muylle',
     lastlog: 'Pornhub',

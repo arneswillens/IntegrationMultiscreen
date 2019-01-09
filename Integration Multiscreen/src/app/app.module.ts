@@ -16,6 +16,7 @@ import { PersonenComponent } from './personen/personen.component';
 import { CertificatenComponent } from './certificaten/certificaten.component';
 import { StatistiekenComponent } from './statistieken/statistieken.component';
 import { PersonenDetailComponent } from './personen-detail/personen-detail.component';
+import {HttpClientModule} from '@angular/common/http';
 const appRoutes: Routes = [
   {path: '', component: LogsComponent},
   {path: 'personen', component: PersonenComponent},
@@ -41,6 +42,7 @@ const appRoutes: Routes = [
     BrowserModule,
     AppMaterialModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
