@@ -1,5 +1,8 @@
-.wrapper{
-  width: 70%;
-  float: left;
-  padding-left: 10%;
+.lijst p{
+  display: inline-block;
 }
+.naam{
+  float: left;
+}
+
+

@@ -1,11 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {DataService} from '../../data.service';
-export interface TestData {
-  name: string;
-  machine: string;
-  time: string;
-}
+
+
 @Component({
   selector: 'app-printer-logs',
   templateUrl: './printer-logs.component.html',
@@ -14,8 +11,9 @@ export interface TestData {
 })
 export class PrinterLogsComponent implements OnInit {
   data: {
-    id: number,
-    naam: String
+    registratiesid: number,
+    gebruikersnaam: String,
+    tijd: String
   }[] = [];
 
   constructor(private dS: DataService) {
@@ -24,16 +22,24 @@ export class PrinterLogsComponent implements OnInit {
 
 
   ngOnInit() {
-    this.dS.getData().subscribe((result) => {
+    this.dS.getPrinter().subscribe((result) => {
       for (const c in result) {
-        this.data.push({
-          id: result[c].gtypeid,
-          naam: result[c].gtypenaam
+        const gid = result[c].gebruikersid;
+        this.dS.getGebruiker(gid).subscribe((result2) => {
+          this.data.push({
+            registratiesid: result[c].registratieid,
+            gebruikersnaam: result2[0].voornaam + ' ' + result2[0].achternaam,
+            tijd: result[c].tijdstip
+          });
         });
-        console.log(result[c].gtypeid);
-        console.log(result[c].gtypenaam);
+
+        console.log(result[c].gebruikersid);
+        console.log(result[c].tijdstip);
       }
     });
     /*const a = result[0].gtypenaam; */
   }
 }
+
+
+

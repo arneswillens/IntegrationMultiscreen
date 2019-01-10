@@ -14,8 +14,9 @@ export interface TestData {
 })
 export class InkomLogsComponent implements OnInit {
   data: {
-    id: number,
-    naam: String
+    registratiesid: number,
+    gebruikersnaam: String,
+    tijd: String
   }[] = [];
 
   constructor(private dS: DataService) {
@@ -26,12 +27,17 @@ export class InkomLogsComponent implements OnInit {
   ngOnInit() {
     this.dS.getInkom().subscribe((result) => {
       for (const c in result) {
-        this.data.push({
-          id: result[c].atypeid,
-          naam: result[c].atypenaam
+        const gid = result[c].gebruikersid;
+        this.dS.getGebruiker(gid).subscribe((result2) => {
+          this.data.push({
+            registratiesid: result[c].registratieid,
+            gebruikersnaam: result2[0].voornaam + ' ' + result2[0].achternaam,
+            tijd: result[c].tijdstip
+          });
         });
-        console.log(result[c].atypeid);
-        console.log(result[c].atypenaam);
+
+        console.log(result[c].gebruikersid);
+        console.log(result[c].tijdstip);
       }
     });
     /*const a = result[0].gtypenaam; */

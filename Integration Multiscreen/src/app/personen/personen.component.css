@@ -1,4 +1,22 @@
-.wrapper{
-  width: 80%;
+.lijst p{
+  display: inline-block;
+}
+
+p{
+  text-align: center;
+}
+
+.registratie{
   float: left;
-  }
+  width: 30%;
+}
+
+.gebruiker{
+  float: left;
+  width: 30%;
+}
+
+.tijd{
+  float: left;
+  width: 30%;
+}

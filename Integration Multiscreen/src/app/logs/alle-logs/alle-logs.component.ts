@@ -15,8 +15,10 @@ export interface TestData {
 })
 export class AlleLogsComponent implements OnInit {
   data: {
-    id: number,
-    naam: String
+    registratiesid: number,
+    gebruikersnaam: String,
+    tijd: String,
+    apparaatnaam: String
   }[] = [];
 
   constructor(private dS: DataService) {
@@ -25,14 +27,20 @@ export class AlleLogsComponent implements OnInit {
 
 
   ngOnInit() {
-    this.dS.getData().subscribe((result) => {
+    this.dS.getAlleLogs().subscribe((result) => {
       for (const c in result) {
-        this.data.push({
-          id: result[c].gtypeid,
-          naam: result[c].gtypenaam
+        const gid = result[c].gebruikersid;
+        this.dS.getGebruiker(gid).subscribe((result2) => {
+          this.data.push({
+            registratiesid: result[c].registratieid,
+            gebruikersnaam: result2[0].voornaam + ' ' + result2[0].achternaam,
+            tijd: result[c].tijdstip
+
+          });
         });
-        console.log(result[c].gtypeid);
-        console.log(result[c].gtypenaam);
+
+        console.log(result[c].gebruikersid);
+        console.log(result[c].tijdstip);
       }
     });
     /*const a = result[0].gtypenaam; */

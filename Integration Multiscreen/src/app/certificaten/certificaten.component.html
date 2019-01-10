@@ -1,17 +1,10 @@
-<div class="wrapper">
 
-  <mat-list>
-    <mat-list-item *ngFor="let certificate of typesOfCertificates">
-      <img matListAvatar src="..." alt="...">
-      <p matLine>
-        <span> {{certificate}} </span>
-      </p>
-      <mat-divider></mat-divider>
-    </mat-list-item>
+<div class="lijst" *ngFor="let dat of data">
+  <div class="lijstitem"></div>
 
-  </mat-list>
-
-
+  <p class="id">{{dat.id}}</p>
+  <p class="naam">{{dat.certificaatnaam}}</p>
+  <p class="beschrijving">{{dat.beschrijvingcertificaat}}</p>
+  <hr>
 </div>
-
 
