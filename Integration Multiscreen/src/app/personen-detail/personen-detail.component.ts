@@ -3,11 +3,6 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {ActivatedRoute} from '@angular/router';
 import {DataService} from '../data.service';
 
-export interface TestData {
-  date: string;
-  lastlog: string;
-  time: string;
-}
 
 @Component({
   selector: 'app-personen-detail',

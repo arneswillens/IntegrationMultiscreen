@@ -42,12 +42,21 @@ export class DataService {
     return this.http.get('http://localhost:8080/Certificaat/getAll');
   }
 
+  getApparaatVanRegistratie(raid: number){
+    //apparaat vanuit registratieID
+    return this.http.get('http://localhost:8080/AanwezigheidsRegistratie/getApparaat?regappid=' + raid);
+  }
+
+  getCertificatenVanGebruiker(gebruikersid:number){
+    return this.http.get('http://localhost:8080/AanwezigheidsRegistratie/getCertificaten?gebruikersid=' + gebruikersid);
+  }
+
+
+
   wijzigGebruiker() {
     return this.http.post('http://localhost:8080/Gebruiker/wijzig', {'voornaam': '', 'achternaam': '', 'email': '', 'telefoonnr': ''}, {headers: {'Content-Type': 'application/json'}});
 
   }
-
-
 
   postCertificates() {
     return this.http.post('http://localhost:8080/Certificaat/voegToe', {}, {headers: {'Content-Type': 'application/json'}});

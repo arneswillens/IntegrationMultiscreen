@@ -12,6 +12,7 @@ export class AlleLogsComponent implements OnInit {
   data: {
     registratiesid: number,
     gebruikersid: number,
+    apparaatregistratieid: number,
     gebruikersnaam: String,
     tijd: String,
   }[] = [];
@@ -26,8 +27,11 @@ export class AlleLogsComponent implements OnInit {
       for (const c in result) {
         const gid = result[c].gebruikersid;
         this.dS.getGebruiker(gid).subscribe((result2) => {
+          this.dS.getApparaatVanRegistratie(raid).subscribe((result3) => {
           this.data.push({
             registratiesid: result[c].registratieid,
+            apparaatregistratieid: raid,
+            apparaatnaam: result3[0].apparaat,
             gebruikersid: gid,
             gebruikersnaam: result2[0].voornaam + ' ' + result2[0].achternaam,
             tijd: result[c].tijdstip
