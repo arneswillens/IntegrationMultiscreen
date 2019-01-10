@@ -4,7 +4,7 @@
   <div class="lijstitem"></div>
 
   <p class="registratie">{{dat.registratiesid}}</p>
-  <p class="gebruiker">{{dat.gebruikersnaam}}</p>
+  <p class="gebruiker"><a routerLink="/detail" [queryParams]="{gebruikersid: dat.gebruikersid}">{{dat.gebruikersnaam}}</a></p>
   <p class="tijd">{{dat.tijd}}</p>
 </div>
 

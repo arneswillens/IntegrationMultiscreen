@@ -4,17 +4,16 @@
 <div class="info">
   <h1>{{naam}}</h1>
   <p>{{email}} <br> {{tel}}</p>
+  <button mat-raised-button routerLink="/edit" [queryParams]="{gebruikersid: id}"> Edit </button>
   <div class="certificates">
-    <img src="" alt="Lasercutter1" >
+   <p>Lasercutter1</p>
   </div>
   <div class="certificates">
-    <img src="" alt="3D-printer" >
+    <p>3D printer</p>
   </div>
   <div class="certificates">
-    <img src="" alt="Kolomboor">
+    <p>Kolomboor</p>
   </div>
-
-
 </div>
 
 <div class="lijst">

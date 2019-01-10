@@ -17,11 +17,13 @@ import { CertificatenComponent } from './certificaten/certificaten.component';
 import { StatistiekenComponent } from './statistieken/statistieken.component';
 import { PersonenDetailComponent } from './personen-detail/personen-detail.component';
 import {HttpClientModule} from '@angular/common/http';
+import { StudenteditComponent } from './studentedit/studentedit.component';
 const appRoutes: Routes = [
   {path: '', component: LogsComponent},
   {path: 'personen', component: PersonenComponent},
   {path: 'certificaten', component: CertificatenComponent},
-  {path: 'detail', component: PersonenDetailComponent}
+  {path: 'detail', component: PersonenDetailComponent},
+  {path: 'edit', component: StudenteditComponent}
 ];
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ const appRoutes: Routes = [
     PersonenComponent,
     CertificatenComponent,
     StatistiekenComponent,
-    PersonenDetailComponent
+    PersonenDetailComponent,
+    StudenteditComponent
   ],
   imports: [
     BrowserModule,

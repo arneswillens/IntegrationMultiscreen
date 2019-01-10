@@ -20,6 +20,7 @@ export class PersonenDetailComponent implements OnInit {
   email: string;
   tel: string;
 
+
   displayedColumns: string[] = ['date', 'time', 'lastlog'];
   dataSource: MatTableDataSource<TestData>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -38,7 +39,7 @@ export class PersonenDetailComponent implements OnInit {
     this.id = this.route.snapshot.queryParams['gebruikersid'];
     this.dS.getGebruikerDetail(this.id).subscribe((result) => {
       // @ts-ignore
-      this.naam = result.voornaam;
+      this.naam = result.voornaam + ' ' + result.achternaam ;
       // @ts-ignore
       this.email = result.email;
       // @ts-ignore
@@ -52,7 +53,7 @@ function createNewUser(): TestData {
 
   return {
     date: '31 november',
-    lastlog: 'Pornhub',
+    lastlog: 'Lasercutter',
     time: '12:03'
   };
 }

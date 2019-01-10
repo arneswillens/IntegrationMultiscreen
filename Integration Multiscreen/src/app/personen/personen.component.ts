@@ -1,36 +1,45 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
-export interface TestData {
-  name: string;
-  lastlog: string;
-  certificate: string;
-}
+import {DataService} from '../data.service';
+
 
 @Component({
   selector: 'app-personen',
   templateUrl: './personen.component.html',
-  styleUrls: ['./personen.component.css']
+  styleUrls: ['./personen.component.css'],
+  providers: [DataService]
 })
 export class PersonenComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'lastlog', 'certificate'];
-  dataSource: MatTableDataSource<TestData>;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-  constructor() {
-    const users = Array.from({length: 100}, (_, k) => createNewUser());
-    this.dataSource = new MatTableDataSource(users);
+  data: {
+    registratiesid: number,
+    gebruikersid: number,
+    gebruikersnaam: String,
+    tijd: String,
+  }[] = [];
+
+  constructor(private dS: DataService) {
+
   }
+
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
+    this.dS.getAlleLogs().subscribe((result) => {
+      for (const c in result) {
+        const gid = result[c].gebruikersid;
+        this.dS.getGebruiker(gid).subscribe((result2) => {
+          this.data.push({
+            registratiesid: result[c].registratieid,
+            gebruikersid: gid,
+            gebruikersnaam: result2[0].voornaam + ' ' + result2[0].achternaam,
+            tijd: result[c].tijdstip
 
-}
-function createNewUser(): TestData {
-  return {
-    name: 'Beau Muylle',
-    lastlog: 'Pornhub',
-    certificate: 'pro fapper'
-  };
+          });
+        });
+
+        console.log(result[c].gebruikersid);
+        console.log(result[c].tijdstip);
+      }
+    });
+    /*const a = result[0].gtypenaam; */
+  }
 }

@@ -21,11 +21,11 @@ export class DataService {
   getKolomboor()  {
     return this.http.get('http://localhost:8080/AanwezigheidsRegistratie/getByApparaat?regappid=2');
   }
-  getLasercutter(){
+  getLasercutter() {
     return this.http.get('http://localhost:8080/AanwezigheidsRegistratie/getByApparaat?regappid=1');
   }
 
-  getPrinter(){
+  getPrinter() {
     return this.http.get('http://localhost:8080/AanwezigheidsRegistratie/getByApparaat?regappid=3');
   }
 
@@ -42,11 +42,18 @@ export class DataService {
     return this.http.get('http://localhost:8080/Certificaat/getAll');
   }
 
+  wijzigGebruiker() {
+    return this.http.post('http://localhost:8080/Gebruiker/wijzig', {'voornaam': '', 'achternaam': '', 'email': '', 'telefoonnr': ''}, {headers: {'Content-Type': 'application/json'}});
 
-
-  postCertificates(certificates: any[]) {
-    return this.http.post('http://localhost:8080/Certificaat/voegToe', certificates);
   }
+
+
+
+  postCertificates() {
+    return this.http.post('http://localhost:8080/Certificaat/voegToe', {}, {headers: {'Content-Type': 'application/json'}});
+  }
+
+
 
   /*getName(){
     return this.http.get('http://localhost:8080/Gebruiker/getAll'+ 's=' + );

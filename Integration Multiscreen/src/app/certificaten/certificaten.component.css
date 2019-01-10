@@ -1,8 +1,17 @@
 .lijst p{
   display: inline-block;
+
 }
 .naam{
   float: left;
+  width:40%;
 }
+ .id{
+   float: left;
+   width:40%;
+ }
 
+ .lijst{
+   margin-top: 1%;
+ }
 

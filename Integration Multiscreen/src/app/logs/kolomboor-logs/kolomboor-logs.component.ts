@@ -15,6 +15,7 @@ export interface TestData {
 export class KolomboorLogsComponent implements OnInit {
   data: {
     registratiesid: number,
+    gebruikersid: number,
     gebruikersnaam: String,
     tijd: String
   }[] = [];
@@ -31,6 +32,7 @@ export class KolomboorLogsComponent implements OnInit {
         this.dS.getGebruiker(gid).subscribe((result2) => {
           this.data.push({
             registratiesid: result[c].registratieid,
+            gebruikersid: gid,
             gebruikersnaam: result2[0].voornaam + ' ' + result2[0].achternaam,
             tijd: result[c].tijdstip
           });

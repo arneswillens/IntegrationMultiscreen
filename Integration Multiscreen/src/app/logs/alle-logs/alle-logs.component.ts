@@ -1,11 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {DataService} from '../../data.service';
 
-export interface TestData {
-  name: string;
-  machine: string;
-  time: string;
-}
 
 @Component({
   selector: 'app-alle-logs',
@@ -16,9 +11,9 @@ export interface TestData {
 export class AlleLogsComponent implements OnInit {
   data: {
     registratiesid: number,
+    gebruikersid: number,
     gebruikersnaam: String,
     tijd: String,
-    //apparaatnaam: String
   }[] = [];
 
   constructor(private dS: DataService) {
@@ -33,6 +28,7 @@ export class AlleLogsComponent implements OnInit {
         this.dS.getGebruiker(gid).subscribe((result2) => {
           this.data.push({
             registratiesid: result[c].registratieid,
+            gebruikersid: gid,
             gebruikersnaam: result2[0].voornaam + ' ' + result2[0].achternaam,
             tijd: result[c].tijdstip
 
