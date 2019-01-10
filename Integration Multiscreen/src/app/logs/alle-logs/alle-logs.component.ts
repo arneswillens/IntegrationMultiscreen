@@ -16,10 +16,9 @@ export interface TestData {
 export class AlleLogsComponent implements OnInit {
   data: {
     registratiesid: number,
-    gebruikersid: number,
     gebruikersnaam: String,
-    tijd: String/*,
-    apparaatnaam: String*/
+    tijd: String,
+    //apparaatnaam: String
   }[] = [];
 
   constructor(private dS: DataService) {
@@ -34,9 +33,9 @@ export class AlleLogsComponent implements OnInit {
         this.dS.getGebruiker(gid).subscribe((result2) => {
           this.data.push({
             registratiesid: result[c].registratieid,
-            gebruikersid: gid,
             gebruikersnaam: result2[0].voornaam + ' ' + result2[0].achternaam,
             tijd: result[c].tijdstip
+
           });
         });
 
