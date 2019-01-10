@@ -34,6 +34,10 @@ export class DataService {
     return this.http.get('http://localhost:8080/AanwezigheidsRegistratie/getGebruiker?gebruikersid=' + gid);
   }
 
+  getGebruikerDetail(gebruikersid: number) {
+    return this.http.get('http://localhost:8080/Gebruiker/getById?gebruikersid=' + gebruikersid);
+  }
+
   getCertificates() {
     return this.http.get('http://localhost:8080/Certificaat/getAll');
   }

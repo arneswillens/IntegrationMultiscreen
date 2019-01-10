@@ -21,7 +21,7 @@ const appRoutes: Routes = [
   {path: '', component: LogsComponent},
   {path: 'personen', component: PersonenComponent},
   {path: 'certificaten', component: CertificatenComponent},
-  {path: 'personendetail', component: PersonenDetailComponent}
+  {path: 'detail', component: PersonenDetailComponent}
 ];
 @NgModule({
   declarations: [
