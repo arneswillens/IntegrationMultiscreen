@@ -53,8 +53,9 @@ export class DataService {
 
 
 
-  wijzigGebruiker() {
-    return this.http.post('http://localhost:8080/Gebruiker/wijzig', {'voornaam': '', 'achternaam': '', 'email': '', 'telefoonnr': ''}, {headers: {'Content-Type': 'application/json'}});
+  wijzigGebruiker(kaartnr: string, voornaam: string, achternaam: string, email: string, wachtwoord: string, telefoonnr: string, gebruikersid: number) {
+    return this.http.post('http://localhost:8080/Gebruiker/wijzig', {'kaartnr': kaartnr, 'voornaam': voornaam, 'achternaam': achternaam,
+      'email': email, 'wachtwoord': wachtwoord, 'telefoonnr': telefoonnr, 'gebruikersid': gebruikersid}, {headers: {'Content-Type': 'application/json'}});
 
   }
 

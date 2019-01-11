@@ -12,9 +12,10 @@ export class AlleLogsComponent implements OnInit {
   data: {
     registratiesid: number,
     gebruikersid: number,
-    apparaatregistratieid: number,
-    gebruikersnaam: String,
-    tijd: String,
+    regappid: number,
+    apparaatnaam: string,
+    gebruikersnaam: string,
+    tijd: string,
   }[] = [];
 
   constructor(private dS: DataService) {
@@ -23,26 +24,31 @@ export class AlleLogsComponent implements OnInit {
 
 
   ngOnInit() {
-    this.dS.getAlleLogs().subscribe((result) => {
-      for (const c in result) {
-        const gid = result[c].gebruikersid;
-        this.dS.getGebruiker(gid).subscribe((result2) => {
-          this.dS.getApparaatVanRegistratie(raid).subscribe((result3) => {
-          this.data.push({
-            registratiesid: result[c].registratieid,
-            apparaatregistratieid: raid,
-            apparaatnaam: result3[0].apparaat,
-            gebruikersid: gid,
-            gebruikersnaam: result2[0].voornaam + ' ' + result2[0].achternaam,
-            tijd: result[c].tijdstip
-
+    this.dS.getAlleLogs().subscribe((result: any) => {
+      for (const gegevens of result) {
+        const gid = gegevens.gebruikersid;
+        const raid = gegevens.regappid;
+        this.dS.getGebruiker(gid).subscribe((result2: any) => {
+          this.dS.getApparaatVanRegistratie(raid).subscribe((result3: any) => {
+            this.data.push({
+              registratiesid: gegevens.registratieid,
+              regappid: raid,
+              apparaatnaam: result3[0].regappnaam,
+              gebruikersid: gid,
+              gebruikersnaam: result2[0].voornaam + ' ' + result2[0].achternaam,
+              tijd: gegevens.tijdstip
+            });
           });
         });
-
-        console.log(result[c].gebruikersid);
-        console.log(result[c].tijdstip);
       }
     });
-    /*const a = result[0].gtypenaam; */
+    setTimeout(() => {
+      this.data.sort(function(a, b) {
+        const c = new Date(a.tijd);
+        const d = new Date(b.tijd);
+        return c > d ? -1 : c < d ? 1 : 0;
+        console.log(this.data);
+      });
+    }, 1000);
   }
 }

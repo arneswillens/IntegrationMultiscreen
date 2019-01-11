@@ -1,16 +1,16 @@
-<form action="/action_page.php">
+<div *ngIf="tel" class="beau">
   <label for="voornaam">Voornaam</label>
-  <input type="text" id="voornaam"  placeholder="">
+  <input type="text" id="voornaam"  placeholder="" [(ngModel)]="voorNaam">
 
   <label for="achternaam">Achternaam</label>
-  <input type="text" id="achternaam" placeholder="">
+  <input type="text" id="achternaam" placeholder="" [(ngModel)]="achterNaam">
 
   <label for="email">Email</label>
-  <input type="text" id="email" placeholder="">
+  <input type="text" id="email" placeholder="" [(ngModel)]="email">
 
-  <label for="wachtwoord">Wachtwoord</label>
-  <input type="text" id="wachtwoord" placeholder="">
+  <label for="telefoon">Telefoon</label>
+  <input type="text" id="telefoon" placeholder="" [(ngModel)]="tel">
 
 
-  <input type="submit" value="Edit">
-</form>
+  <input type="submit" value="Edit" (click)="update()">
+</div>

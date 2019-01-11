@@ -6,19 +6,14 @@ p{
   text-align: center;
 }
 
-.registratie{
-  float: left;
-  width: 30%;
-}
-
 .gebruiker{
   float: left;
-  width: 30%;
+  width: 45%;
 }
 
 .tijd{
   float: left;
-  width: 30%;
+  width: 45%;
 }
 .lijst{
   margin-top: 1%;

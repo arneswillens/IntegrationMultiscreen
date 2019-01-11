@@ -16,8 +16,8 @@ export class KolomboorLogsComponent implements OnInit {
   data: {
     registratiesid: number,
     gebruikersid: number,
-    gebruikersnaam: String,
-    tijd: String
+    gebruikersnaam: string,
+    tijd: string
   }[] = [];
 
   constructor(private dS: DataService) {
@@ -42,6 +42,14 @@ export class KolomboorLogsComponent implements OnInit {
         console.log(result[c].tijdstip);
       }
     });
+    setTimeout(() => {
+      this.data.sort(function(a, b) {
+        const c = new Date(a.tijd);
+        const d = new Date(b.tijd);
+        return c > d ? -1 : c < d ? 1 : 0;
+        console.log(this.data);
+      });
+    }, 1000);
     /*const a = result[0].gtypenaam; */
   }
 }

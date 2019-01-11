@@ -3,11 +3,17 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {ActivatedRoute} from '@angular/router';
 import {DataService} from '../data.service';
 
+export interface TestData {
+  date: string;
+  lastlog: string;
+  time: string;
+}
 
 @Component({
   selector: 'app-personen-detail',
   templateUrl: './personen-detail.component.html',
-  styleUrls: ['./personen-detail.component.css']
+  styleUrls: ['./personen-detail.component.css'],
+  providers: [DataService]
 })
 export class PersonenDetailComponent implements OnInit {
   id: number;

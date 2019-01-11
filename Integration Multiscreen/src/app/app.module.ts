@@ -18,6 +18,7 @@ import { StatistiekenComponent } from './statistieken/statistieken.component';
 import { PersonenDetailComponent } from './personen-detail/personen-detail.component';
 import {HttpClientModule} from '@angular/common/http';
 import { StudenteditComponent } from './studentedit/studentedit.component';
+import {FormsModule} from '@angular/forms';
 const appRoutes: Routes = [
   {path: '', component: LogsComponent},
   {path: 'personen', component: PersonenComponent},
@@ -46,7 +47,8 @@ const appRoutes: Routes = [
     AppMaterialModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
