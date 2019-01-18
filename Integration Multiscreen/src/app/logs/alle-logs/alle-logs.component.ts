@@ -38,17 +38,18 @@ export class AlleLogsComponent implements OnInit {
               gebruikersnaam: result2[0].voornaam + ' ' + result2[0].achternaam,
               tijd: gegevens.tijdstip
             });
+            this.sortAll();
           });
         });
       }
     });
-    setTimeout(() => {
-      this.data.sort(function(a, b) {
-        const c = new Date(a.tijd);
-        const d = new Date(b.tijd);
-        return c > d ? -1 : c < d ? 1 : 0;
-        console.log(this.data);
-      });
-    }, 1000);
+  }
+
+  sortAll() {
+    this.data.sort(function (a, b) {
+      const c = new Date(a.tijd);
+      const d = new Date(b.tijd);
+      return c > d ? -1 : c < d ? 1 : 0;
+    });
   }
 }

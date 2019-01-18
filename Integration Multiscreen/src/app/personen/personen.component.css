@@ -6,17 +6,17 @@ p{
   text-align: center;
 }
 
-.registratie{
+.naam{
   float: left;
   width: 30%;
 }
 
-.gebruiker{
+.email{
   float: left;
   width: 30%;
 }
 
-.tijd{
+.tel{
   float: left;
   width: 30%;
 }
@@ -24,3 +24,18 @@ p{
 .lijst{
   padding-top: 1%;
 }
+.naam{
+  text-decoration: none;
+  color: #F44336;
+}
+a{
+  text-decoration: none;
+  color: #000;
+}
+.lijstitem{
+  width: 85%;
+  margin-right: 0;
+  float: left;
+}
+
+

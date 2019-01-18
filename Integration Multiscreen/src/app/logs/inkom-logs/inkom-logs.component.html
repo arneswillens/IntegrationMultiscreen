@@ -1,8 +1,9 @@
 
 <div class="lijst" *ngFor="let dat of data">
   <div class="lijstitem"></div>
-
-  <p class="gebruiker"><a routerLink="/detail" [queryParams]="{gebruikersid: dat.gebruikersid}">{{dat.gebruikersnaam}}</a></p>
+  <a routerLink="/detail" [queryParams]="{gebruikersid: dat.gebruikersid}">
+  <p class="gebruiker naam">{{dat.gebruikersnaam}}</p>
   <p class="tijd">{{dat.tijd}}</p>
+  </a>
 </div>
 

@@ -14,6 +14,9 @@ export class DataService {
   getAlleLogs() {
     return this.http.get('http://localhost:8080/AanwezigheidsRegistratie/getAll');
   }
+  getAlleGebruikers() {
+    return this.http.get('http://localhost:8080/Gebruiker/getAll');
+  }
 
   getInkom()  {
     return this.http.get('http://localhost:8080/AanwezigheidsRegistratie/getByApparaat?regappid=4');

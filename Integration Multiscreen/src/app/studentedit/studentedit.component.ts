@@ -32,7 +32,7 @@ export class StudenteditComponent implements OnInit {
     });
   }
   update() {
- this.dS.wijzigGebruiker(this.kaartnr, this.voorNaam, this.achterNaam, this.email, this.wachtwoord, this.tel, this.id);
+ this.dS.wijzigGebruiker(this.kaartnr, this.voorNaam, this.achterNaam, this.email, this.wachtwoord, this.tel, this.id)
  this.router.navigate(['detail'], {queryParams: {gebruikersid: this.id}});
   }
 }

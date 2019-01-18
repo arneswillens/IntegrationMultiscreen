@@ -11,10 +11,11 @@ import {DataService} from '../data.service';
 })
 export class PersonenComponent implements OnInit {
   data: {
-    registratiesid: number,
-    gebruikersid: number,
-    gebruikersnaam: String,
-    tijd: String,
+    id: number,
+    voornaam: string,
+    achternaam: string,
+    email: string,
+    tel: string,
   }[] = [];
 
   constructor(private dS: DataService) {
@@ -23,19 +24,16 @@ export class PersonenComponent implements OnInit {
 
 
   ngOnInit() {
-    this.dS.getAlleLogs().subscribe((result) => {
+    this.dS.getAlleGebruikers().subscribe((result) => {
       for (const c in result) {
-        const gid = result[c].gebruikersid;
-        this.dS.getGebruiker(gid).subscribe((result2) => {
           this.data.push({
-            registratiesid: result[c].registratieid,
-            gebruikersid: gid,
-            gebruikersnaam: result2[0].voornaam + ' ' + result2[0].achternaam,
-            tijd: result[c].tijdstip
+            id:  result[c].gebruikersid,
+            voornaam: result[c].voornaam,
+            achternaam: result[c].achternaam,
+            email: result[c].email,
+            tel: result[c].telefoonnr,
 
           });
-        });
-
         console.log(result[c].gebruikersid);
         console.log(result[c].tijdstip);
       }

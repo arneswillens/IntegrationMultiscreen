@@ -28,3 +28,20 @@ td, th {
   width: 70%;
   margin: 0 auto;
 }
+.naam{
+  text-decoration: none;
+  color: #F44336;
+}
+a:hover > p{
+  background: #F44336;
+  color: white !important;
+}
+a{
+  text-decoration: none;
+  color: #000;
+}
+.tijd, .registratie{
+  color: #000;
+}
+
+

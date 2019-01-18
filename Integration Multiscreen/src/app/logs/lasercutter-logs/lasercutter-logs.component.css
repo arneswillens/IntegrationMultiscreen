@@ -19,3 +19,7 @@ p{
 .lijst{
   margin-top: 1%;
 }
+a{
+  text-decoration: none;
+  color: #F44336;
+}
